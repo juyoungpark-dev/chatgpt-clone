@@ -1,7 +1,7 @@
 function HomePage() {
   return (
-    <div>
-      <h1>ChatGPT Messenger</h1>
+    <div className="flex flex-col items-center text-white">
+      <h1 className="text-5xl font-bold-mb-20">ChatGPT</h1>
     </div>
   )
 }

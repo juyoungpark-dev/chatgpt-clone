@@ -1,3 +1,5 @@
+import './styles/globals.css'
+
 export const metadata = {
   title: 'ChatGPT Clone',
   description: 'ChatGPT Messenger',
@@ -15,7 +17,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="flex">
+          {/* Sidebar */}
+
+          {/* ClientProvider - Notification */}
+          
+          <div className="bg-[#343541] flex-1">{children}</div>
+        </div>
+      </body>
     </html>
   )
 }
