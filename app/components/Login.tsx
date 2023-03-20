@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import { signIn } from "next-auth/react"
-import Image from "next/image"
+import { signIn } from "next-auth/react";
+import Image from "next/image";
 
 function Login() {
   return (
@@ -17,13 +17,13 @@ function Login() {
         alt="logo"
       />
       <button className="text-white font-bold text-3xl animate-pulse"
-        onClick={() => signIn('google')}
+        onClick={() => signIn("google")}
       >
         Sign In to use ChatGPT
       </button>
     </div>
-  )
+  );
 
 }
 
-export default Login
+export default Login;

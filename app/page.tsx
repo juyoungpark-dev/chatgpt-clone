@@ -1,4 +1,4 @@
-import { BoltIcon, ExclamationTriangleIcon, SunIcon } from '@heroicons/react/24/outline'
+import { BoltIcon, ExclamationTriangleIcon, SunIcon } from "@heroicons/react/24/outline";
 
 function HomePage() {
   return (
@@ -45,7 +45,7 @@ function HomePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
