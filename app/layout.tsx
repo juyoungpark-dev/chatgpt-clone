@@ -1,19 +1,19 @@
-import Sidebar from '@/app/components/Sidebar'
-import { SessionProvider } from '@/app/components/SessionProvider'
-import Login from '@/app/components/Login'
-import '@/app/styles/globals.css'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
+import Sidebar from "@/app/components/Sidebar";
+import { SessionProvider } from "@/app/components/SessionProvider";
+import Login from "@/app/components/Login";
+import "@/app/styles/globals.css";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export const metadata = {
-  title: 'ChatGPT Clone',
-  description: 'ChatGPT Messenger',
+  title: "ChatGPT Clone",
+  description: "ChatGPT Messenger",
   viewport: {
-    width: 'device-width',
+    width: "device-width",
     initialScale: 1,
     maximumScale: 1,
   },
-}
+};
 
 export default async function RootLayout({
   children,
@@ -42,5 +42,5 @@ export default async function RootLayout({
         </SessionProvider>
       </body>
     </html>
-  )
+  );
 }
