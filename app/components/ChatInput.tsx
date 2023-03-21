@@ -54,7 +54,6 @@ function ChatInput({ chatId }: Props) {
         session: session,
       })
     }).then((res) => {
-      console.log(res);
       toast.success("ChatGPT has responded!",{
         id: notification,
       });

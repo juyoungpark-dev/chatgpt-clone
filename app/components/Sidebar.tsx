@@ -33,7 +33,7 @@ function Sidebar() {
         <img
           onClick={() => signOut()}
           className="h-12 w-12 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50"
-          src={session.user?.image! || ""}
+          src={session?.user?.image! || ""}
           alt="Profile pic"
         />
       }
