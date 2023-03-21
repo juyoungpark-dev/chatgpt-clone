@@ -42,7 +42,6 @@ function ChatInput({ chatId }: Props) {
     );
 
     const notification = toast.loading("ChatGPT is thinking...");
-
     await fetch("/api/askQuestion", {
       method: "POST",
       headers: {
@@ -52,9 +51,10 @@ function ChatInput({ chatId }: Props) {
         prompt: input,
         chatId,
         model,
-        session,
+        session: session,
       })
-    }).then(() => {
+    }).then((res) => {
+      console.log(res);
       toast.success("ChatGPT has responded!",{
         id: notification,
       });
