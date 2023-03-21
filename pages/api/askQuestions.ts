@@ -1,5 +1,6 @@
-import { collection, query } from "firebase/firestore";
+import { serverTimestamp } from "firebase/firestore";
 import type { NextApiRequest, NextApiResponse } from "next";
+import query from "@/app/lib/queryApi";
 
 type Data = {
   name: string;
@@ -16,9 +17,11 @@ export default async function handler(
   if(!chatId){}
 
   // ChatGPT Query
-  const response = await query(
-    prompt, chatId, model, session
-  );
+  const response = await query(prompt, chatId, model);
+  const message: Message = {
+    text: response || "ChatGPT was unable to find an answer for that!",
+    createdAt: serverTimestamp(),
 
+  };
   res.status(200).json({name: "John Doe"});
 }
