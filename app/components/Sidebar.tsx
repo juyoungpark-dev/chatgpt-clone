@@ -6,6 +6,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import NewChat from "@/app/components/NewChat";
 import ChatRow from "@/app/components/ChatRow";
+import ModelSelection from "@/app/components/ModelSelection";
 
 function Sidebar() {
   const { data: session } = useSession();
@@ -13,7 +14,7 @@ function Sidebar() {
     session && query(
       collection(db, "users", session?.user?.email!, "chats"), // path: /users/{user email}/chats -> it will return the array of chats
       orderBy("createdAt", "asc")
-    ) 
+    )
   );
 
   return (
@@ -21,12 +22,18 @@ function Sidebar() {
       <div className="flex-1">
         <NewChat />
         <div>
-          {/* ModelSelection */}
+          <div className="hidden sm:inline">
+            <ModelSelection />
+          </div>
         </div>
-        {/* Map through the ChatRows */}
-        {chats?.docs.map(chat => (
-          <ChatRow key={chat.id} id={chat.id} />
-        ))}
+        <div className="flex flex-col space-y-2 my-2">
+          {loading && (
+            <div className="animate-pulse text-center text-white">Loading Chats...</div>
+          )}
+          {chats?.docs.map(chat => (
+            <ChatRow key={chat.id} id={chat.id} />
+          ))}
+        </div>
       </div>
       {session &&
         // eslint-disable-next-line @next/next/no-img-element
